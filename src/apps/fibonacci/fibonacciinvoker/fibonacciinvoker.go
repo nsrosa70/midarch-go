@@ -20,7 +20,7 @@ func (FibonacciInvoker) I_PosInvP(msg *message.Message) {
 
 		//dispatch invocation
 		r := impl.Fibo(p1)
-		fmt.Println("NO PLUGIN")
+		fmt.Println("[NO PLUGIN]")
 		fmt.Println(r)
 
 		// send reply
