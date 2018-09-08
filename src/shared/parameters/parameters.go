@@ -3,10 +3,12 @@ package parameters
 import "time"
 
 // Dirs
-const DIR_PLUGINS = "/Users/nsr/Dropbox/go/software-architecture-v8/src/plugins"
-const DIR_CSP     = "/Users/nsr/Dropbox/research/specification/csp"
-const DIR_SOURCE  = "/Users/nsr/Dropbox/go/software-architecture-v8"
-const DIR_CONF    = "/Users/nsr/Dropbox/go/software-architecture-v8/src/apps/conf"
+const BASE_DIR    = "/go/midarch-go"
+//const BASE_DIR    = "/Users/nsr/Dropbox/go/software-architecture-v8/"
+const DIR_PLUGINS = BASE_DIR + "src/plugins"
+const DIR_CSP     = BASE_DIR+ "/src/cspspecs"
+const DIR_SOURCE  = BASE_DIR
+const DIR_CONF    = BASE_DIR+"/src/apps/conf"
 const DIR_GO      = "/usr/local/go/bin"
 
 // Ports
