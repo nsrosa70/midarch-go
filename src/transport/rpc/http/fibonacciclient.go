@@ -31,7 +31,7 @@ func main() {
 	for i := 0; i < parameters.SAMPLE_SIZE; i++ {
 
 		// prepare request
-		args := shared.Args{A: i}
+		args := shared.Args{A: 38}
 
 		// make request
 		t1 = time.Now()
