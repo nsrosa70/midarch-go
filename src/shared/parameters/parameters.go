@@ -39,4 +39,4 @@ var MONITOR_TIME  time.Duration   // seconds
 var INJECTION_TIME time.Duration  // seconds
 var REQUEST_TIME time.Duration    // milliseconds
 var STRATEGY int      = 0   // 1 - no change 2 - change once 3 - change same plugin 4 - alternate plugins
-var SAMPLE_SIZE int   = 10
+var SAMPLE_SIZE int   = 1000
