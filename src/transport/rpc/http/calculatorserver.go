@@ -9,6 +9,7 @@ import (
 	"shared/parameters"
 	"strconv"
 	"apps/calculator/implrpc"
+	"shared/shared"
 )
 
 func main() {
@@ -24,7 +25,7 @@ func main() {
 	server.HandleHTTP("/", "/debug")
 
 	// create tcp listen
-	l, e := net.Listen("tcp", ":"+strconv.Itoa(parameters.CALCULATOR_PORT))
+	l, e := net.Listen("tcp", shared.ResolveHostIp()+":"+strconv.Itoa(parameters.CALCULATOR_PORT))
 	if e != nil {
 		log.Fatal("Server not started:", e)
 	}

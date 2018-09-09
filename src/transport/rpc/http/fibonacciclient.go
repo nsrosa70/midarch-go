@@ -18,10 +18,12 @@ func main() {
 	shared.ProcessOSArguments(os.Args[1:])
 
 	// connect to server
-	client, err := rpc.DialHTTP("tcp", "localhost:"+strconv.Itoa(parameters.FIBONACCI_PORT))
+	client, err := rpc.DialHTTP("tcp", shared.ResolveHostIp()+":"+strconv.Itoa(parameters.FIBONACCI_PORT))
 	if err != nil {
 		log.Fatal("Server not ready:", err)
 	}
+
+	fmt.Println("Apague")
 
 	// make requests
 	var t1, t2 time.Time
