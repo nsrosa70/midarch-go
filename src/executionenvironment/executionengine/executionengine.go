@@ -7,7 +7,6 @@ import (
 	"framework/library"
 	"reflect"
 	"framework/element"
-	"verificationtools/fdr"
 	"executionenvironment/executionunit"
 	"shared/errors"
 )
@@ -37,12 +36,12 @@ func (e ExecutionEngine) Exec(conf configuration.Configuration, channs map[strin
 	}
 
 	// check behaviour using FDR
-	fdr := new(fdr.FDR)
-	ok := fdr.CheckBehaviour(conf,elemMaps)
-	if !ok{
-		myError := errors.MyError{Source:"Execution Engine",Message:"Configuration has a problem detected by FDR4"}
-		myError.ERROR()
-	}
+	//fdr := new(fdr.FDR)   // TODO
+	//ok := fdr.CheckBehaviour(conf,elemMaps)
+	//if !ok{
+	//	myError := errors.MyError{Source:"Execution Engine",Message:"Configuration has a problem detected by FDR4"}
+	//	myError.ERROR()
+	//}
 
 	// start components
 	for i := range conf.Components {
