@@ -7,6 +7,7 @@ import (
 	"executionenvironment/executionenvironment"
 	"os"
 	"shared/shared"
+	"strconv"
 )
 
 func main(){
@@ -18,6 +19,6 @@ func main(){
 	EE := executionenvironment.ExecutionEnvironment{}
 	EE.Exec(conf.GenerateConf(parameters.DIR_CONF + "/MiddlewareNamingServer.conf"),parameters.IS_ADAPTIVE)
 
-	fmt.Println("Naming service started!!")
+	fmt.Println("Naming service started at "+shared.ResolveHostIp()+" Port= "+strconv.Itoa(parameters.NAMING_PORT))
 	fmt.Scanln()
 }
