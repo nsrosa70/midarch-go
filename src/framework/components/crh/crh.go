@@ -24,6 +24,7 @@ func (c CRH) I_PosInvP(msg *message.Message) {
 	host := msg.Payload.(message.ToCRH).Host
 	port := msg.Payload.(message.ToCRH).Port
 	addr := strings.Join([]string{host, strconv.Itoa(port)}, ":")
+	fmt.Println("CRH:: "+strconv.Itoa(port)+":"+host)
 	conn, err = net.Dial("tcp", addr)
 
 	fmt.Println("CRH:: "+host+ ": "+strconv.Itoa(port))

@@ -5,8 +5,6 @@ import (
 	"framework/components/clientproxy/proxy"
 	"reflect"
 	"transport/middleware/ior"
-	"fmt"
-	"strconv"
 )
 
 type NamingClientProxy struct {
@@ -32,7 +30,6 @@ func (n NamingClientProxy) Register(args ... interface{}) bool {
 	inv := message.Invocation{Host: n.Host, Port: n.Port, Op: "register", Args: argsTemp}
 	reqMsg := message.Message{inv}
 
-	fmt.Println("NamingClientProxy:: "+strconv.Itoa(port)+":"+host)
 	chIn <- reqMsg
 	repMsg := <-chOut
 	payload := repMsg.Payload.(map[string]interface{})
