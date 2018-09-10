@@ -232,8 +232,8 @@ func ProcessOSArguments(args []string){
 			parameters.STRATEGY,_ = strconv.Atoi(variable[1])
 		case "IS_ADAPTIVE":
 			parameters.IS_ADAPTIVE,_ = strconv.ParseBool(variable[1])
-		case "NAMING_SERVICE":
-			parameters.NAMING_SERVICE = variable[1]
+		case "NAMING_HOST":
+			parameters.NAMING_HOST = variable[1]
 		default:
 			fmt.Println("Argument '"+variable[0]+"' does not exist")
 			os.Exit(0)
