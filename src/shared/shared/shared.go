@@ -232,6 +232,8 @@ func ProcessOSArguments(args []string){
 			parameters.STRATEGY,_ = strconv.Atoi(variable[1])
 		case "IS_ADAPTIVE":
 			parameters.IS_ADAPTIVE,_ = strconv.ParseBool(variable[1])
+		case "NAMING_SERVICE":
+			parameters.NAMING_SERVICE = args[i]
 		default:
 			fmt.Println("Argument '"+variable[1]+"' does not exist")
 			os.Exit(0)
@@ -240,21 +242,13 @@ func ProcessOSArguments(args []string){
 }
 
 func ResolveHostIp() (string) {
-
 	netInterfaceAddresses, err := net.InterfaceAddrs()
 
 	if err != nil { return "" }
-
 	for _, netInterfaceAddress := range netInterfaceAddresses {
-
 		networkIp, ok := netInterfaceAddress.(*net.IPNet)
-
 		if ok && !networkIp.IP.IsLoopback() && networkIp.IP.To4() != nil {
-
 			ip := networkIp.IP.String()
-
-			fmt.Println("Resolved Host IP: " + ip)
-
 			return ip
 		}
 	}

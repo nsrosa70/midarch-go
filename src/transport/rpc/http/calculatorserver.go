@@ -31,7 +31,7 @@ func main() {
 	}
 
 	// wait for calls
-	fmt.Println("Server is running... \n")
+	fmt.Println("Server is running... at "+shared.ResolveHostIp()+" Port "+strconv.Itoa(parameters.CALCULATOR_PORT))
 	http.Serve(l, nil)
 }
 
