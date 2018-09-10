@@ -21,9 +21,10 @@ var portApague int
 
 func (c CRH) I_PosInvP(msg *message.Message) {
 
+	fmt.Println("CRH:: ")
 	host := msg.Payload.(message.ToCRH).Host
 	port := msg.Payload.(message.ToCRH).Port
-	addr := strings.Join([]string{host, strconv.Itoa(port)}, ":")
+	addr := strings.Join([]string{host, strconv.Itoa(port)}, ":")""
 	conn, err = net.Dial("tcp", addr)
 
 	//defer conn.Close()
@@ -31,7 +32,7 @@ func (c CRH) I_PosInvP(msg *message.Message) {
 	portApague = port
 	if err != nil {
 		fmt.Println(err)
-		myError := errors.MyError{Source: "CRH", Message: "Unable to open connection at port "+strconv.Itoa(port)}
+		myError := errors.MyError{Source: "CRH", Message: "Unable to open connection to "+host+" : "+strconv.Itoa(port)}
 		myError.ERROR()
 	}
 
