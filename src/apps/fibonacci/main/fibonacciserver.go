@@ -27,7 +27,7 @@ func main(){
 	namingClientProxy := naming.LocateNaming(parameters.NAMING_HOST,parameters.NAMING_PORT)
 
 	// register
-	fmt.Println(netshared.ResolveHostIp())
+	fmt.Println("FibonnaciServer:: "+netshared.ResolveHostIp())
 	fibo := fibonacciclientproxy.FibonacciClientProxy{Host:netshared.ResolveHostIp(),Port:parameters.FIBONACCI_PORT} // TODO
 	namingClientProxy.Register("Fibonacci", fibo)
 	fmt.Println("Fibonacci Server ready at port "+strconv.Itoa(fibo.Port))
