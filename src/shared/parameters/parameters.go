@@ -40,4 +40,4 @@ var INJECTION_TIME time.Duration  // seconds
 var REQUEST_TIME time.Duration    // milliseconds
 var STRATEGY int      = 0   // 1 - no chanvar ge 2 - change once 3 - change same plugin 4 - alternate plugins
 var SAMPLE_SIZE int   = 0
-var NAMING_SERVICE    = "localhost"
+var NAMING_HOST    = ""

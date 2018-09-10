@@ -22,7 +22,7 @@ func main(){
 	EE.Exec(conf.GenerateConf(parameters.DIR_CONF + "/MiddlewareFibonacciServer.conf"),parameters.IS_ADAPTIVE)
 
 	// proxy to naming service
-	namingClientProxy := naming.LocateNaming("localhost",parameters.NAMING_PORT)
+	namingClientProxy := naming.LocateNaming(parameters.NAMING_HOST,parameters.NAMING_PORT)
 
 	// register
 	fibo := fibonacciclientproxy.FibonacciClientProxy{Host:"localhost",Port:parameters.FIBONACCI_PORT} // TODO
