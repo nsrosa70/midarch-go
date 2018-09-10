@@ -8,6 +8,7 @@ import (
 	"framework/message"
 	"fmt"
 	"shared/errors"
+	"shared/shared"
 )
 
 type SRH struct {
@@ -22,7 +23,7 @@ var serverUp = false
 func (s SRH) I_PreInvR(msg *message.Message) {
 
 	if !serverUp {
-		addr := ":" + strings.TrimSpace(strconv.Itoa(s.Port))
+		addr :=shared.ResolveHostIp()+ ":" + strings.TrimSpace(strconv.Itoa(s.Port))
 		ln, err = net.Listen("tcp", addr)
 
 		if err != nil {
