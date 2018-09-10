@@ -8,7 +8,7 @@ import (
 	"framework/message"
 	"fmt"
 	"shared/errors"
-	"shared/shared"
+	"shared/net"
 )
 
 type SRH struct {
@@ -23,12 +23,12 @@ var serverUp = false
 func (s SRH) I_PreInvR(msg *message.Message) {
 
 	if !serverUp {
-		addr :=shared.ResolveHostIp()+ ":" + strings.TrimSpace(strconv.Itoa(s.Port))
+		addr := netshared.ResolveHostIp() + ":" + strings.TrimSpace(strconv.Itoa(s.Port))
 		ln, err = net.Listen("tcp", addr)
 
 		if err != nil {
 			fmt.Println(err)
-			myError := errors.MyError{Source: "SRH", Message: "Unable to listen on port "+strconv.Itoa(s.Port)}
+			myError := errors.MyError{Source: "SRH", Message: "Unable to listen on port " + strconv.Itoa(s.Port)}
 			myError.ERROR()
 		}
 		serverUp = true
@@ -39,7 +39,7 @@ func (s SRH) I_PreInvR(msg *message.Message) {
 
 		if err != nil {
 			fmt.Println(err)
-			myError := errors.MyError{Source: "SRH", Message: "Unable to accept connections at port "+strconv.Itoa(s.Port)}
+			myError := errors.MyError{Source: "SRH", Message: "Unable to accept connections at port " + strconv.Itoa(s.Port)}
 			myError.ERROR()
 		}
 	}
