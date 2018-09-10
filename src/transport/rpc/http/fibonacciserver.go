@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"shared/parameters"
 	"apps/fibonacci/implrpc"
-	"shared/shared"
+	"shared/net"
 )
 
 func main() {
@@ -25,7 +25,7 @@ func main() {
 	server.HandleHTTP("/", "/debug")
 
 	// create tcp listen
-	l, e := net.Listen("tcp", shared.ResolveHostIp()+":"+strconv.Itoa(parameters.NAMING_PORT))
+	l, e := net.Listen("tcp", netshared.ResolveHostIp()+":"+strconv.Itoa(parameters.NAMING_PORT))
 	if e != nil {
 		log.Fatal("Server not started:", e)
 	}

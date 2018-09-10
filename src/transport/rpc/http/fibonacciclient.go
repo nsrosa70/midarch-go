@@ -18,7 +18,7 @@ func main() {
 	shared.ProcessOSArguments(os.Args[1:])
 
 	// connect to server
-	client, err := rpc.DialHTTP("tcp", parameters.NAMING_SERVICE+":"+strconv.Itoa(parameters.NAMING_PORT))
+	client, err := rpc.DialHTTP("tcp", parameters.NAMING_HOST+":"+strconv.Itoa(parameters.NAMING_PORT))
 	if err != nil {
 		log.Fatal("Server not ready:", err)
 	}
