@@ -3,7 +3,6 @@ package fibonacciinvoker
 import (
 	"framework/message"
 	"apps/fibonacci/impl"
-	"fmt"
 )
 
 type FibonacciInvoker struct{}
@@ -20,8 +19,6 @@ func (FibonacciInvoker) I_PosInvP(msg *message.Message) {
 
 		//dispatch invocation
 		r := impl.Fibo(p1)
-		fmt.Println("NO PLUGIN")
-		fmt.Println(r)
 
 		// send reply
 		header := message.ReplyHeader{1} // 1 - Success
