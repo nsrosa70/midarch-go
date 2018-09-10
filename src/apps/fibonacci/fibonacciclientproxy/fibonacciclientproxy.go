@@ -32,4 +32,3 @@ func (FibonacciClientProxy) I_PreInvR(msg *message.Message) {
 func (FibonacciClientProxy) I_PosTerR(msg *message.Message) {
 	chOut <- *msg
 }
-

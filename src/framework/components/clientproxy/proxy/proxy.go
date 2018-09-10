@@ -6,8 +6,3 @@ type Proxy struct {
 	ObjectId int
 	TypeElem interface{}
 }
-
-//func Invoke(any interface{}, name string, args ... interface{}){
-//
-//	shared.Invoke(reflect.ValueOf(any).FieldByName("TypeElem"),name,args)
-//}
