@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	pb "google.golang.org/grpc/examples/fibonacci/fibonacci"
+	protobuf "google.golang.org/grpc/examples/fibonacci/fibonacci"
 	"google.golang.org/grpc/reflection"
 )
 
@@ -18,9 +18,9 @@ const (
 type server struct{}
 
 // SayHello implements helloworld.GreeterServer
-func (s *server) Fibo(ctx context.Context, in *pb.FiboRequest) (*pb.FiboReply, error) {
+func (s *server) Fibo(ctx context.Context, in *protobuf.FiboRequest) (*protobuf.FiboReply, error) {
 	n := F(in.N)
-	return &pb.FiboReply{N: n}, nil
+	return &protobuf.FiboReply{N: n}, nil
 }
 
 func F(n int32) int32 {
@@ -39,7 +39,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterGreeterServer(s, &server{})
+	protobuf.RegisterGreeterServer(s, &server{})
 
 	// Register reflection service on gRPC server.
 	reflection.Register(s)
