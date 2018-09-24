@@ -30,7 +30,6 @@ func main(){
 	namingClientProxy.Register("Fibonacci", fibo)
 	fmt.Println("Fibonacci Server ready at port "+strconv.Itoa(fibo.Port))
 
-	// wait for something
 	fmt.Scanln()
 	fmt.Println("done")
 }
